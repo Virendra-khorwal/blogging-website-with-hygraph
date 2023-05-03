@@ -4,19 +4,19 @@ const { default: Link } = require("next/link")
 
 const BlogCard = ({post}) => {
     return (
-      <div className="">
+      <div className="bg-slate-50 rounded hover:shadow-lg">
         <Link href={`/posts/${post.slug}`}>
-          <div>
+          <div className="rounded overflow-hidden">
             <Image
-              className="w-72"
+              className="w-72 h-48"
               src={post.coverImage.url}
               width={1000}
               height={1000}
               alt="cover image"
             />
           </div>
-          <div>
-            <h2 className="text-xl">{post.title}</h2>
+          <div className="p-2">
+            <h2 className="text-xl font-medium">{post.title}</h2>
             <div className="flex gap-2 items-center mt-2">
               <Image
                 className="w-8"
@@ -27,7 +27,7 @@ const BlogCard = ({post}) => {
               />
               <div>
                 <h4 className="text-sm">{post.author.name}</h4>
-                <p className="text-xs">Published On: {post.datePublished}</p>
+                <p className="text-xs italic">Published On : {post.datePublished}</p>
               </div>
             </div>
           </div>

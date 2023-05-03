@@ -57,6 +57,7 @@ export async function getStaticProps({ params }) {
 }
 
 const Post = ({ post }) => {
+
   return (
     <>
       <Head>
@@ -72,7 +73,6 @@ const Post = ({ post }) => {
           className="rounded"
         />
         <div className="flex flex-col gap-2">
-          <h1 className="text-5xl font-semibold mt-2">{post.title}</h1>
           <div className="flex gap-2 items-center mt-2">
             <Image
               className="w-8"
@@ -83,16 +83,18 @@ const Post = ({ post }) => {
             />
             <div>
               <h4 className="text-sm">{post.author.name}</h4>
-              <p className="text-xs">Published On: {post.datePublished}</p>
+              <p className="text-xs italic">
+                Published On : {post.datePublished}
+              </p>
             </div>
           </div>
+          <h1 className="text-5xl font-semibold mt-2">{post.title}</h1>
         </div>
 
         <div
           className=""
           dangerouslySetInnerHTML={{ __html: post.content.html }}
         ></div>
-        
       </main>
     </>
   );
